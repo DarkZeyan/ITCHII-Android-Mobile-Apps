@@ -32,18 +32,23 @@ public class MainActivity extends AppCompatActivity {
     private void displayResults(){
         // Obtener los recursos de String.
 
-        String dadoPorcentaje1, dadoPorcentaje2, dado1Resultado, dado2Resultado;
+        String txt_dadoPorcentaje1, txt_dadoPorcentaje2, dado1Resultado, dado2Resultado;
         float porcentajeDado1, porcentajeDado2;
 
 
         dado1Resultado = getResources().getString(R.string.textView_dado1);
         textView_progresoDado1.setText(dado1Resultado+ " "+ladosDado[0]);
+        txt_dadoPorcentaje1 = getResources().getString(R.string.textView_porcentaje_d1);
         porcentajeDado1 = (float) ( ladosDado[0] * 100 / totalDadosLanzados);
+        textView_porcentajeDado1.setText(porcentajeDado1+txt_dadoPorcentaje1);
+
         progressBarDado1.setProgress((int)(porcentajeDado1));
 
+        txt_dadoPorcentaje2 = getResources().getString(R.string.textView_porcentaje_d2);
         dado2Resultado = getResources().getString(R.string.textView_dado2);
         porcentajeDado2 = (float) (ladosDado[1]*100/totalDadosLanzados);
         textView_progresoDado2.setText(dado2Resultado+" "+ladosDado[1]);
+        textView_porcentajeDado2.setText(porcentajeDado2+txt_dadoPorcentaje2);
         progressBarDado2.setProgress((int)(porcentajeDado2));
 
 
@@ -116,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Numero: "+randomNumber, Toast.LENGTH_LONG).show();
                 processResult(randomNumber);
                 displayResults();
-                String resultText = "El resultado es "+randomNumber;
+                String resultText = "El resultado de este lanzamiento es "+randomNumber+", has lanzado "+totalDadosLanzados+" dados.";
                 tv_resultado.setText(resultText);
 
 
