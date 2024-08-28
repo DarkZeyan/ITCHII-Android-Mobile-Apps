@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lanzar dado</string>
+    <string name="textView_title">Lanzador de dados</string>
+    <string name="textView_author_name">App. Moviles</string>
+    <string name="imageView_description">Imagen de dado</string>
+    <string name="button_lanzar">Lanzar</string>
+    <string name="textView_result">Resultado: </string>
+    <string name="textView_dado1">Dado 1:</string>
+    <string name="textView_dado2">Dado 2:</string>
+    <string name="textView_dado3">Dado 3:</string>
+    <string name="textView_dado4">Dado 4:</string>
+    <string name="textView_dado5">Dado 5:</string>
+    <string name="textView_dado6">Dado 6:</string>
+    <string name="textView_porcentaje_d1">0%</string>
+    <string name="textView_porcentaje_d2">0%</string>
+    <string name="textView_porcentaje_d3">0%</string>
+    <string name="textView_porcentaje_d4">0%</string>
+    <string name="textView_porcentaje_d5">0%</string>
+    <string name="textView_porcentaje_d6">0%</string>
+</resources>
