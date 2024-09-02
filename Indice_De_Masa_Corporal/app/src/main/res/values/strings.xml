@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Indice Masa Corporal</string>
+    <string name="textView_titulo">Cálculo de IMC</string>
+    <string name="textView_peso">Peso (kg)</string>
+    <string name="textView_altura">Altura (mts)</string>
+    <string name="editText_peso">Peso</string>
+    <string name="editText_altura">Altura</string>
+    <string name="button_calcular">Calcular IMC</string>
+    <string name="textView_resultado">Resultado:</string>
+    <string name="textView_resultado_Imc_Interpretación">Interpretación del IMC:</string>
+
+</resources>
