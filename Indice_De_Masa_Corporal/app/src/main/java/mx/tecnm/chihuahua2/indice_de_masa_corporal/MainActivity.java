@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 //Obtener y mostrar interpretación IMC
                 if(imc < 18.50){ //Peso bajo
                     textView_imc_interpretacion.setText(getResources().getString(R.string.peso_bajo));
-                    main.setBackgroundColor(getResources().getColor(R.color.blue));
+                    main.setBackgroundColor(getResources().getColor(R.color.yellow));
 
                 } else if (imc >= 18.50 && imc <= 24.99){ //Peso Normal)
                     textView_imc_interpretacion.setText(getResources().getString(R.string.peso_normal));
