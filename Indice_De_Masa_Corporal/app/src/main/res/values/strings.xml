@@ -7,6 +7,24 @@
     <string name="editText_altura">Altura</string>
     <string name="button_calcular">Calcular IMC</string>
     <string name="textView_resultado">Resultado:</string>
-    <string name="textView_resultado_Imc_Interpretación">Interpretación del IMC:</string>
+    <string name="textView_resultado_Imc_Interpretación">Interpretación del IMC: </string>
+    <string name="peso_bajo">Peso Bajo</string>
+    <string name="peso_normal">Peso Normal</string>
+    <string name="peso_alto">Peso Alto</string>
+
+    <!--Recursos para elementos de menu-->
+    <string name="itemMenu_camara">Camara</string>
+    <string name="itemMenu_busqueda">Busqueda</string>
+    <string name="itemMenu_configuracion">Configuración</string>
+    <string name="itemMenu_acerca_de">Acerca de</string>
+
+
+    <!-- Recursos para actividad de About Me -->
+
+
+    <string name="textView_app_version">Versión 1.0</string>
+    <string name="textView_fecha">06 de Septiembre 2024</string>
+    <string name="textView_desarrollador">Desarrollador: Jorge Bugarini</string>
+    <string name="button_return">Regresar</string>
 
 </resources>

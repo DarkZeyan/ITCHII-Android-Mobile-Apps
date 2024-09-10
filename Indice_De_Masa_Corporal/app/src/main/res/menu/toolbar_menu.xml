@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/camara"
+        android:title="@string/itemMenu_camara"
+        android:icon="@drawable/outline_photo_camera_24"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/search"
+        android:title="@string/itemMenu_busqueda"
+        android:icon="@drawable/outline_search_24"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+
+    <item android:id="@+id/settings"
+        android:title="@string/itemMenu_configuracion" />
+
+    <item android:id="@+id/about"
+        android:title="@string/itemMenu_acerca_de" />
+
+
+</menu>
