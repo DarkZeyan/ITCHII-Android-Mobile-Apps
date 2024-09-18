@@ -7,4 +7,8 @@
     </style>
 
     <style name="Theme.Indice_De_Masa_Corporal" parent="Base.Theme.Indice_De_Masa_Corporal" />
+
+    <style name="GreenText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#00FF00</item>
+    </style>
 </resources>

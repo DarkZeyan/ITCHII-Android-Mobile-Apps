@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         if (itemId == R.id.camara) {
             // Abrir la camara
             Toast.makeText(this, "Camara", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent();
+            intent.setAction(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivity(intent);
         }
         else if (itemId == R.id.search) {
             // Abrir la busqueda

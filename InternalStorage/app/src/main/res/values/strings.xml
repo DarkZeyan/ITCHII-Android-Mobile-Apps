@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Almacenamiento Interno</string>
+    <string name="textView_titulo">Almacenamiento Interno (archivos)</string>
+    <string name="textView_producto">Producto</string>
+    <string name="editText_producto">Ingrese el producto</string>
+    <string name="textView_listado">Listado de productos</string>
+    <string name="editText_multiline_productos">Productos</string>
+
+    <string name="button_verListado">Ver listado</string>
+    <string name="button_guardar">Guardar producto</string>
+    <string name="button_borrar">Limpiar listado</string>
+</resources>
