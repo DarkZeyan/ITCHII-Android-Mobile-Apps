@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         button_verListado = findViewById(R.id.button_verListado);
         button_borrar = findViewById(R.id.button_borrar);
 
-        
+
 
 
     }
