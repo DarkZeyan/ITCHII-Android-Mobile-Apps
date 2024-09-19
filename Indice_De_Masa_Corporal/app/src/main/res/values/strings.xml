@@ -17,6 +17,7 @@
     <string name="itemMenu_busqueda">Busqueda</string>
     <string name="itemMenu_configuracion">Configuración</string>
     <string name="itemMenu_acerca_de">Acerca de</string>
+    <string name="itemMenu_browser">Navegador Web</string>
 
 
     <!-- Recursos para actividad de About Me -->
@@ -29,5 +30,10 @@
 
     <string name="channel_name">Indice de masa corporal</string>
     <string name="channel_description">Canal de notificaciones de IMC"</string>
+
+    <string name="textView_settingsTitle">Configuración</string>
+    <string name="textView_lightMode">Tema claro</string>
+    <string name="textView_darkMode">Tema oscuro</string>
+    <string name="textView_systemMode">Tema determinado por el sistema</string>
 
 </resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Settings">
+
+    <TextView
+        android:id="@+id/textView_settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/textView_settingsTitle"
+        android:textColor="@color/md_theme_inversePrimary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton_systemDefault"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/radioButton_systemDefault"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="22dp"
+        android:buttonTint="@color/md_theme_tertiaryFixed"
+        android:text="@string/textView_systemMode"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton_lightMode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_settingsTitle" />
+
+    <RadioButton
+        android:id="@+id/radioButton_lightMode"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="26dp"
+        android:buttonTint="@color/md_theme_tertiaryFixed"
+        android:text="@string/textView_lightMode"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton_darkMode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton_systemDefault" />
+
+    <RadioButton
+        android:id="@+id/radioButton_darkMode"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="94dp"
+        android:buttonTint="@color/md_theme_tertiaryFixed"
+        android:text="@string/textView_darkMode"
+        app:layout_constraintBottom_toTopOf="@+id/button_return"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton_lightMode" />
+
+    <Button
+        android:id="@+id/button_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="293dp"
+        android:backgroundTint="@color/md_theme_tertiary"
+        android:text="@string/button_return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioButton_darkMode" />
+</androidx.constraintlayout.widget.ConstraintLayout>

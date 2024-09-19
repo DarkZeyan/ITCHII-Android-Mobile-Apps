@@ -1,13 +1,11 @@
 package mx.tecnm.chihuahua2.indice_de_masa_corporal;
 
-import static mx.tecnm.chihuahua2.indice_de_masa_corporal.R.id.button_calcularIMC;
-import static mx.tecnm.chihuahua2.indice_de_masa_corporal.R.id.textView_imc_interpretacion;
-
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -70,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
         else if (itemId == R.id.settings) {
             // Abrir la configuracion
             Toast.makeText(this, "Configuracion", Toast.LENGTH_LONG).show();
+
+            //Llamar actividad de Settings
+            Intent intent = new Intent(this, Settings.class);
+            startActivity(intent);
+
         }
         else if (itemId == R.id.about) {
             // Abrir la acerca de
@@ -78,6 +82,17 @@ public class MainActivity extends AppCompatActivity {
             // Llamar la actividad de About Me
             Intent intent = new Intent(this, AboutMe.class);
             startActivity(intent);
+        }
+        else if(itemId==R.id.browser) {
+            // Abrir la galeria
+            Toast.makeText(this, "Navegador web", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent();
+            String url = "https://www.google.com.mx";
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
+
+
         }
         return true;
     }
@@ -128,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPreferences = getSharedPreferences("ThemePrefs", MODE_PRIVATE);
+        int themeMode = sharedPreferences.getInt("theme_mode", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        AppCompatDelegate.setDefaultNightMode(themeMode);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

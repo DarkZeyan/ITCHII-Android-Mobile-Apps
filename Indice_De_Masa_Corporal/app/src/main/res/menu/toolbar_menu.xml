@@ -13,11 +13,15 @@
         app:showAsAction="ifRoom|collapseActionView"
         />
 
-    <item android:id="@+id/settings"
+    <item
+        android:id="@+id/settings"
         android:title="@string/itemMenu_configuracion" />
 
     <item android:id="@+id/about"
         android:title="@string/itemMenu_acerca_de" />
+    <item
+        android:id="@+id/browser"
+        android:title="@string/itemMenu_browser" />
 
 
 </menu>

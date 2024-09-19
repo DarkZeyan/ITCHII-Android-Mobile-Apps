@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Body mass index</string>
     <string name="textView_titulo">Calc BMI</string>
     <string name="textView_peso">Mass (weigth)</string>
@@ -18,6 +18,8 @@
     <string name="itemMenu_busqueda">Search</string>
     <string name="itemMenu_configuracion">Settings</string>
     <string name="itemMenu_acerca_de">About</string>
+    <string name="itemMenu_browser">Web Browser</string>
+
 
         <!-- Recursos para actividad de About Me -->
 
@@ -29,5 +31,11 @@
 
     <string name="channel_name">Body mass index</string>
     <string name="channel_description">Notification channel for BMI"</string>
-
+    
+    <string name="textView_settingsTitle">Settings</string>
+    
+    <string name="textView_lightMode">Light mode</string>
+    <string name="textView_darkMode">Dark mode</string>
+    <string name="textView_systemMode">Systems default mode</string>
+    
 </resources>
