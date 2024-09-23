@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else if(itemId==R.id.browser) {
-            // Abrir la galeria
+            // Abrir navegador
             Toast.makeText(this, "Navegador web", Toast.LENGTH_LONG).show();
             Intent intent = new Intent();
             String url = "https://www.google.com.mx";

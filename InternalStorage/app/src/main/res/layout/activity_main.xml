@@ -83,8 +83,8 @@
         android:id="@+id/button_verListado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="224dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="188dp"
         android:text="@string/button_verListado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -93,8 +93,8 @@
         android:id="@+id/button_borrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="52dp"
         android:text="@string/button_borrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_multiline_productos" />
