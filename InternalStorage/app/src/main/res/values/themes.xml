@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.InternalStorage" parent="Base.Theme.InternalStorage" />
+    <style name="Theme.InternalStorage.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.InternalStorage.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.InternalStorage.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

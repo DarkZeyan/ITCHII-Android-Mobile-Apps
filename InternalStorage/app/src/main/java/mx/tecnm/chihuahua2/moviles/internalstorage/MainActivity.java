@@ -1,6 +1,7 @@
 package mx.tecnm.chihuahua2.moviles.internalstorage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         button_borrar = findViewById(R.id.button_borrar);
 
 
+
+
         //Darle funcionamiento al boton de guardado
 
         button_guardarProducto.setOnClickListener(
@@ -124,6 +127,9 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         updateList();
+
+                        // Limpiar el input
+                        editText_producto.setText("");
                     }
                 }
         );
@@ -134,7 +140,18 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        updateList();
+
+                        // Si el archivo existe, abrir la actividad de ver listado
+                        File file = new File(getFilesDir(), "productos.txt");
+                        if (file.exists()) {
+                            updateList();
+                        // Abrir la actividad de ver listado
+                        Intent intent = new Intent(MainActivity.this, verListado.class);
+                        startActivity(intent);
+                        } else {
+                            // Si el archivo no existe, mostrar un mensaje (opcional)
+                            Toast.makeText(MainActivity.this, "El archivo no existe", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                 }

@@ -37,8 +37,8 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:hint="@string/editText_producto"
         android:inputType="text"
-        android:text="@string/editText_producto"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/textView_producto"
         app:layout_constraintTop_toBottomOf="@+id/textView_titulo" />
@@ -72,6 +72,7 @@
         android:layout_marginBottom="64dp"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="@string/editText_multiline_productos"
         android:inputType="textMultiLine"
         android:singleLine="false"
         app:layout_constraintBottom_toTopOf="@+id/button_verListado"
