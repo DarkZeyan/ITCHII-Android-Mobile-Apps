@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SQLite | Gramineas CRUD </string>
+
+    <string name="textView_id">ID</string>
+    <string name="textView_name">Nombre común</string>
+    <string name="textView_description">Descripción</string>
+
+    <string name="editText_id">ID</string>
+    <string name="editText_name">Nombre común</string>
+    <string name="editText_description">Descripción</string>
+
+    <string name="button_add">Agregar</string>
+    <string name="button_update">Actualizar</string>
+    <string name="button_delete">Eliminar</string>
+    <string name="button_search">Buscar</string>
+
+    <string name="toast_added">Agregado correctamente</string>
+    <string name="toast_updated">Actualizado correctamente</string>
+    <string name="toast_deleted">Eliminado correctamente</string>
+    <string name="toast_not_found">No encontrado</string>
+    <string name="toast_error">Error</string>
+
+
+</resources>
