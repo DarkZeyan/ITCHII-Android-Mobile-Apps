@@ -12,14 +12,16 @@
         android:id="@+id/textView_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15sp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textSize="24sp" />
 
     <LinearLayout
-        android:id="@+id/linearLayout_horizontal"
+        android:id="@+id/linearLayout_horizontal_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15sp"
         android:orientation="horizontal">
 
         <TextView
@@ -40,8 +42,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15sp"
         android:orientation="horizontal">
 
         <TextView
@@ -62,8 +66,10 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="15sp"
         android:orientation="horizontal">
 
         <TextView
@@ -85,70 +91,85 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout_registerButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/imageButton_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_first"
             app:srcCompat="@android:drawable/ic_media_previous" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/imageButton_previous"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_previous"
             app:srcCompat="@android:drawable/ic_media_rew" />
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/imageButton_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_next"
             app:srcCompat="@android:drawable/ic_media_ff" />
 
         <ImageButton
-            android:id="@+id/imageButton5"
+            android:id="@+id/imageButton_last"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_last"
             app:srcCompat="@android:drawable/ic_media_next" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout_crud"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="10sp"
+        android:layout_marginRight="10sp"
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/imageButton_insert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_add"
             app:srcCompat="@android:drawable/ic_menu_add" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/imageButton_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_delete"
             app:srcCompat="@android:drawable/ic_menu_delete" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/imageButton_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_update"
             app:srcCompat="@android:drawable/ic_menu_edit" />
 
         <ImageButton
-            android:id="@+id/imageButton9"
+            android:id="@+id/imageButton_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:contentDescription="@string/button_search"
             app:srcCompat="@android:drawable/ic_menu_search" />
     </LinearLayout>
 

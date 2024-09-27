@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Examen del Tema 2</string>
+    <string name="app_title">Captura de Calificaciones</string>
+    <string name="author">Jorge Eduardo Escobar Bugarini -  21550317 </string>
+    <string name="subject">Desarrollo de Aplicaciones Moviles</string>
+
+
+        <!-- Recursos de String para inputs    -->
+
+    <string name="textView_calificacion">Calificacion: </string>
+    <string name="editText_calificacion">Ingresa una calificacion</string>
+    <string name="button_capturarCalif">Capturar calificacion</string>
+
+    <!--Recursos relacionados con la calificacion del grupo    -->
+
+    <string name="textView_total_calificaciones">Cantidad de calificaciones capturadas: </string>
+    <string name="textView_promedio_grupo">Promedio del Grupo: </string>
+    <string name="promedio_grupo_resultado">0.0</string>
+    <string name="textView_mejor_calificacion">Mejor Calificacion: </string>
+    <string name="mejor_calificacion_resultado">0.0</string>
+
+
+</resources>

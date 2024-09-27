@@ -9,6 +9,11 @@
     <string name="editText_name">Nombre común</string>
     <string name="editText_description">Descripción</string>
 
+    <string name="button_first">Primero</string>
+    <string name="button_previous">Anterior</string>
+    <string name="button_next">Siguiente</string>
+    <string name="button_last">Último</string>
+
     <string name="button_add">Agregar</string>
     <string name="button_update">Actualizar</string>
     <string name="button_delete">Eliminar</string>
