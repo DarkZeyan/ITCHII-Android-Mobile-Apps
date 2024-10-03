@@ -2,6 +2,7 @@
     <string name="app_name">Almacenamiento de Preferencias</string>
     <string name="textView_name">Nombre: </string>
     <string name="textView_selection">Selecciona una opción</string>
+    <string name="textView_selectedTopic">Tema seleccionado</string>
     <string name="textView_birth_date">Fecha de nacimiento: </string>
 
     <string name="editText_name">Ingresa tu nombre</string>
@@ -12,4 +13,5 @@
 
     <string name="button_save">Guardar</string>
     <string name="button_view">Ver</string>
+    <string name="button_return">Regresar</string>
 </resources>

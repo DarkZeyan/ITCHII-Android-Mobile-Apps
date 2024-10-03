@@ -104,7 +104,7 @@
 
             <CalendarView
                 android:id="@+id/calendarView_birth_date"
-                android:layout_width="280sp"
+                android:layout_width="230sp"
                 android:layout_height="wrap_content" />
         </TableRow>
 
