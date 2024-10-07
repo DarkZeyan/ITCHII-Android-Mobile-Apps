@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editText_name;
     EditText editText_description;
 
+    TextView textView_counter;
+
     private SQLiteHelper sqLiteHelper;
     private Cursor cursor;
     private SQLiteDatabase db;
@@ -46,16 +48,20 @@ public class MainActivity extends AppCompatActivity {
         db.close();
     }
 
+
     public void displayData() {
         if (!String.valueOf(cursor.getCount()).equals("0")) {
             editText_id.setText(cursor.getString(0));
             editText_name.setText(cursor.getString(1));
             editText_description.setText(cursor.getString(2));
+            textView_counter.setText("Estas en el registro "+(cursor.getPosition()+1)+" de "+cursor.getCount());
         } else {
             // Limpiar campos si se borra el ultimo registro o el cursor esta vacio
             editText_id.setText("");
             editText_name.setText("");
             editText_description.setText("");
+            textView_counter.setText("No hay registros guardados.");
+
         }
     }
 
@@ -84,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         editText_id = findViewById(R.id.editText_id);
         editText_name = findViewById(R.id.editText_name);
         editText_description = findViewById(R.id.editText_description);
+
+        textView_counter = findViewById(R.id.textView_counter);
 
         // Añadir funcionalidad a los botones
 

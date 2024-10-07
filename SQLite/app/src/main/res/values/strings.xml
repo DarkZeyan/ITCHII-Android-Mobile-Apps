@@ -25,5 +25,7 @@
     <string name="toast_not_found">No encontrado</string>
     <string name="toast_error">Error</string>
 
+    <string name="textView_counter">No hay registros guardados.</string>
+
 
 </resources>
