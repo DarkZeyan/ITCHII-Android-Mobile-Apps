@@ -177,20 +177,32 @@ public class MainActivity extends AppCompatActivity {
             SQLiteDatabase db = sqliteHelper.getWritableDatabase();
 
             String id = editText_id.getText().toString();
-            Cursor cursor = db.rawQuery("SELECT * FROM gramineas WHERE id_graminea = ?", new String[] { id });
+            Cursor newCursor = db.rawQuery("SELECT * FROM gramineas WHERE id_graminea = ?", new String[] { id });
 
-            if (cursor.moveToFirst()) {
-                editText_name.setText(cursor.getString(1));
-                editText_description.setText(cursor.getString(2));
+
+
+            if (newCursor.moveToFirst()) {
+                editText_name.setText(newCursor.getString(1));
+                editText_description.setText(newCursor.getString(2));
 
                 // Obtener nueva posicion para el cursor
+
 
                 Cursor previousCursor = db.rawQuery("SELECT count(*) FROM gramineas WHERE id_graminea < ?",
                         new String[] { id });
 
                 previousCursor.moveToFirst();
                 int new_position = Integer.parseInt(previousCursor.getString(0));
-                cursor.moveToPosition(new_position);
+                newCursor.moveToPosition(new_position);
+
+
+
+                // Se utiliza la ID
+                // se actualiza el numero de registro
+
+                textView_counter.setText("Estas en el registro "+(new_position+1)+" de "+cursor.getCount());
+
+
             } else {
                 Toast.makeText(getApplicationContext(), "Registro no encontrado", Toast.LENGTH_SHORT).show();
             }
