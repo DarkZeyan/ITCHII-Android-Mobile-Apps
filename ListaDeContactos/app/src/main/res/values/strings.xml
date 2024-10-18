@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Lista de Contactos</string>
+    <string name="contact_icon">Icono de Contacto</string>
+</resources>
