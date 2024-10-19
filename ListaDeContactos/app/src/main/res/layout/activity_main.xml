@@ -8,24 +8,94 @@
     android:background="@color/background_color"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/imageButton_add"
+        android:layout_width="61dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/add_contact"
+        android:src="@drawable/ic_add_contact_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:src="@drawable/ic_add_contact_foreground" />
+
     <TextView
-        android:layout_width="411dp"
-        android:layout_height="47dp"
+        android:id="@+id/textView"
+        android:layout_width="410dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginBottom="38dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton_add"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.061" />
 
-    <ListView
-        android:layout_width="409dp"
-        android:layout_height="651dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="79dp" />
+    <SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:queryHint="@string/hint_search"
+        android:textAlignment="viewStart"
+        android:textColorHint="@color/white"
+        android:textColor="#FFFFFF"
+        style="@style/SearchViewStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton_add"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton_add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton_add"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+    </SearchView>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_add">
+
+        <ListView
+            android:id="@+id/listView_contacts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/textView_empty_list"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginTop="150dp"
+            android:lineSpacingExtra="24sp"
+            android:text="@string/textView_empty"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

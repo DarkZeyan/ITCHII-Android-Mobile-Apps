@@ -2,7 +2,8 @@ package com.example.listadecontactos;
 
 import androidx.annotation.NonNull;
 
-public class Contact {
+
+public class Contact{
 
     int id;
     String name;

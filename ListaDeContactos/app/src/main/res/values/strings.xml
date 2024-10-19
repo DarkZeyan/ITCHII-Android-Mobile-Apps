@@ -1,4 +1,53 @@
 <resources>
     <string name="app_name">Lista de Contactos</string>
     <string name="contact_icon">Icono de Contacto</string>
+    <string name="add_contact">Agregar Contacto</string>
+    <string name="contact_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="contact_number">Número</string>
+
+<!--    Hints -->
+    <string name="textView_empty">No hay contactos agregados</string>
+
+    <string name="hint_search">Buscar contacto...</string>
+    <string name="hint_contact_name">Ingrese el nombre del contacto (Obligatorio)</string>
+    <string name="hint_last_name">Ingrese el apellido del contacto</string>
+    <string name="hint_contact_number">Ingrese el número del contacto (Obligatorio)</string>
+
+    <string name="contact_added">Contacto agregado</string>
+    <string name="contact_not_added">No se pudo agregar el contacto</string>
+    <string name="contact_not_found">No se encontraron contactos</string>
+    <string name="contact_deleted">Contacto eliminado</string>
+    <string name="contact_not_deleted">No se pudo eliminar el contacto</string>
+    <string name="contact_updated">Contacto actualizado</string>
+    <string name="contact_not_updated">No se pudo actualizar el contacto</string>
+
+    <string name="error_contact_name">El nombre del contacto es obligatorio</string>
+    <string name="error_contact_number">El número del contacto es obligatorio</string>
+    <string name="error_contact_not_found">No se encontraron contactos</string>
+    <string name="error_contact_not_deleted">No se pudo eliminar el contacto</string>
+    <string name="error_contact_not_updated">No se pudo actualizar el contacto</string>
+    <string name="error_contact_not_added">No se pudo agregar el contacto</string>
+
+    <string name="contact_list">Lista de Contactos</string>
+    <string name="contact_name_list">Nombre</string>
+    <string name="contact_last_name_list">Apellido</string>
+    <string name="contact_number_list">Número</string>
+    <string name="contact_edit">Editar</string>
+    <string name="contact_delete">Eliminar</string>
+    <string name="contact_cancel">Cancelar</string>
+    <string name="contact_save">Guardar</string>
+
+    <string name="contact_details">Datos del Contacto</string>
+<!--    Hints para los campos de edicion -->
+
+    <string name="hint_contact_name_edit">Ingrese el nombre del contacto</string>
+    <string name="hint_last_name_edit">Ingrese el apellido del contacto</string>
+    <string name="hint_contact_number_edit">Ingrese el número del contacto</string>
+    <string name="error_contact_name_edit">El nombre del contacto es obligatorio</string>
+    <string name="error_contact_number_edit">El número del contacto es obligatorio</string>
+
+
+
+
 </resources>
