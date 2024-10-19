@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -66,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
         listView_contacts.setOnItemClickListener(
                 (parent, view, position, id) -> {
                     Intent intent = new Intent(MainActivity.this, ViewEditContactActivity.class);
-                    intent.putExtra("position",position);
+                    System.out.println(listView_contacts.getAdapter().getItem(position));
+                    Contact contact = (Contact) listView_contacts.getAdapter().getItem(position);
+                    int contactId = contact.getId();
+                    intent.putExtra("id",contactId);
                     startActivityForResult(intent, 1);
                 }
         );
@@ -80,15 +84,6 @@ public class MainActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                contactListAdapter.searchContact(query);
-                // Creamos un nuevo hilo para actualizar la vista
-
-                listView_contacts.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        listView_contacts.setAdapter(contactListAdapter);
-                    }
-                });
                 return true;
             }
 
@@ -96,6 +91,25 @@ public class MainActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 // Actualizar la lista de contactos en tiempo real
                 contactListAdapter.searchContact(newText);
+                listView_contacts.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        listView_contacts.setAdapter(contactListAdapter);
+                        contactListAdapter.notifyDataSetChanged();
+
+                        listView_contacts.setOnItemClickListener(
+                                (parent, view, position, id) -> {
+                                    Intent intent = new Intent(MainActivity.this, ViewEditContactActivity.class);
+                                    System.out.println(listView_contacts.getAdapter().getItem(position));
+                                    Contact contact = (Contact) listView_contacts.getAdapter().getItem(position);
+                                    int contactId = contact.getId();
+                                    intent.putExtra("id",contactId);
+                                    startActivityForResult(intent, 2);
+                                }
+
+                        );
+                    }
+                });
                 return true; // Return true to indicate that you've handled the change
             }
         });
@@ -109,11 +123,20 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             // Actualizar la lista de contactos después de agregar uno nuevo
             contactListAdapter.notifyDataSetChanged();
+            listView_contacts.setAdapter(contactListAdapter);
+            // Mostrar o ocultar el mensaje de lista vacía
             if (contactListAdapter.getCount() == 0) {
                 empty_list_text.setVisibility(View.VISIBLE);
             } else {
                 empty_list_text.setVisibility(View.GONE);
             }
+        }
+        if(requestCode == 2 && resultCode == RESULT_OK){
+            contactListAdapter.notifyDataSetChanged();
+            listView_contacts.setAdapter(contactListAdapter);
+            //Limpiar la busqueda
+            searchView.setQuery("", false);
+            searchView.clearFocus();
         }
     }
 }

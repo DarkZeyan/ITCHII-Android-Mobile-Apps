@@ -22,7 +22,7 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
     private Context context;
     private SQLiteDatabase db; // Referencia a la base de datos de SQLite con los contactos
     private List<Contact> contacts; // Lista de contactos que se mostrarán en la lista
-    private boolean isSearchMode = false; // Indica si estamos en modo de búsqueda
+    private boolean searchM = false; // Variable para saber si se está realizando una búsqueda
     public ContactListAdapter(Context context, SQLiteDatabase db) {
         super(context,0);   // Al procesarse directamente la base de datos con la lista, no hace falta mandar el layout
         this.context = context;
@@ -43,13 +43,30 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
         return contacts.get(position);
     }
 
+    public Contact getContactById(int id) {
+        for (Contact contact : contacts) {
+            if (contact.getId() == id) {
+                return contact;
+            }
+        }
+        return null;
+    }
+
+    public int getContactPositionById(int id) {
+        for (int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getId() == id) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     // Vista de la lista
     @SuppressLint("ResourceAsColor")
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull android.view.ViewGroup parent){
-        if(!isSearchMode){
+        if(!searchM){
             refreshList();
         }
         View view = convertView;
@@ -74,7 +91,7 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
     }
     // Metodo para buscar contactos que tengan el nombre parecido al ingresado
     public void searchContact(String query) {
-        isSearchMode = true;
+        searchM = true;
         // Validamos que el query no este vacio
         if(query == null || query.isEmpty()){
             // Si esta vacio, entonces se debe mostrar todos los contactos
@@ -82,12 +99,9 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
         }else{
             contacts.clear();
             clear();
-            System.out.println("Query entrante: " + query);
             // Hacer la consulta de la base de datos, adicionalmente buscar por el apellido
             String sqliteQuery = "SELECT * FROM contacts WHERE name LIKE ? OR last_name LIKE ? OR phone LIKE ?";
             String[] args = {"%" + query + "%", "%" + query + "%", "%" + query + "%"};
-            System.out.println("Query a ejecutar: " + sqliteQuery);
-            System.out.println("Args: " + Arrays.toString(args));
             Cursor cursor2 = db.rawQuery(sqliteQuery, args);
 
             // Verificar que existan contactos con ese nombre o apellido con el cursor.moveToFirst
@@ -96,8 +110,6 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
                 // Hasta que ya no hayan mas disponibles
 
                 do{
-                    System.out.println("Cursor: " + cursor2);
-
                     // Asumiendo las columnas, _id, name, last_name, phone
                     int id = cursor2.getInt(cursor2.getColumnIndexOrThrow("_id"));
                     String name = cursor2.getString(cursor2.getColumnIndexOrThrow("name"));
@@ -109,6 +121,7 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
 
                 }while(cursor2.moveToNext());
             }
+            System.out.println("Contactos a mostrar:" + contacts.size());
             System.out.println("Contactos encontrados: " + cursor2.getCount());
             // Cerrar el cursor
             cursor2.close();
@@ -118,7 +131,6 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
     }
 
     private void refreshList() {
-        System.out.println("Refreshing list");
         // Obtener todos los contactos de la base de datos
         Cursor cursor = db.rawQuery("SELECT * FROM contacts ORDER BY name ASC", null);
         // Limpiar la lista actual
@@ -140,26 +152,27 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
         notifyDataSetChanged();
     }
     // Metodo para eliminar un contacto
-    public void deleteContact(int position){
-
-        isSearchMode = false;
+    public void deleteContact(int id){
+        searchM = false;
         // Obtener el contacto en la posición actual
-        Contact contact = getItem(position);
+        Contact contact = getContactById(id);
         // Eliminar el contacto de la base de datos
         contacts.remove(contact);
         db.delete("contacts", "_id = ?", new String[]{String.valueOf(contact.getId())});
         // Eliminar el contacto de la lista
         remove(contact);
+        searchM = false;
         // Notificar al adaptador que los datos han cambiado
+        refreshList();
         notifyDataSetChanged();
 
     }
     // Metodo para editar un contacto
 
-    public void editContact(int position, String newName, String newLastName, String newPhone){
-        isSearchMode = false;
+    public void editContact(int id, String newName, String newLastName, String newPhone){
+        searchM = false;
         // Obtener el contacto en la posición actual
-
+        int position = getContactPositionById(id);
         Contact contact = getItem(position);
         // Editar el contacto en la base de datos
         // Creamos un objeto ContentValues para almacenar los valores a actualizar
@@ -168,6 +181,9 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
         values.put("last_name", newLastName);
         values.put("phone", newPhone);
         // Actualizar el contacto en la base de datos
+
+
+
         contacts.set(position, new Contact(contact.getId(), newName, newLastName, newPhone));
         db.update("contacts", values, "_id = ?", new String[]{String.valueOf(contact.getId())});
         // Actualizar el nombre y el teléfono del contacto en la lista
@@ -175,12 +191,13 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
         contact.setLastName(newLastName);
         contact.setPhoneNumber(newPhone);
         // Notificar al adaptador que los datos han cambiado
+        refreshList();
         notifyDataSetChanged();
     }
 
     // Metodo para agregar un contacto
     public void addContact(String name, String last_name, String phone) {
-        isSearchMode = false;
+        searchM = false;
         // Insertar el contacto en la base de datos
         ContentValues values = new ContentValues();
         values.put("name", name);
@@ -195,6 +212,7 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
             // Agregar el contacto a la lista
             contacts.add(newContact);
             // Notificar al adaptador que los datos han cambiado
+            refreshList();
             notifyDataSetChanged();
         } else {
             // Si la insercion no se realizo correctamente, entonces mostrar un mensaje de error

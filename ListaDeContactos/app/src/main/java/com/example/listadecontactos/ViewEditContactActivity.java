@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ViewEditContactActivity extends AppCompatActivity {
     private Contact contact;
-    private int position;
+    private int id;
     private ContactListAdapter adapter;
 
     EditText editText_name, editText_last_name, editText_phone;
@@ -41,9 +41,9 @@ public class ViewEditContactActivity extends AppCompatActivity {
         ContactSqliteHelper dbHelper = new ContactSqliteHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
-        position = getIntent().getIntExtra("position", -1);
+        id = getIntent().getIntExtra("id", -1);
         adapter = new ContactListAdapter(this, db);
-        contact = adapter.getItem(position);
+        contact = adapter.getContactById(id);
 
         editText_name.setText(contact.getName());
         editText_last_name.setText(contact.getLastName());
@@ -59,7 +59,8 @@ public class ViewEditContactActivity extends AppCompatActivity {
                     .setPositiveButton("Sí", (dialog, which) -> {
 
                         // Eliminar el contacto de la base de datos
-                        adapter.deleteContact(position);
+                        adapter.deleteContact(id);
+                        adapter.notifyDataSetChanged();
                         setResult(RESULT_OK);
                         Toast.makeText(this, getString(R.string.contact_deleted), Toast.LENGTH_SHORT).show();
                         // Volver a la actividad anterior
@@ -71,7 +72,7 @@ public class ViewEditContactActivity extends AppCompatActivity {
 
         button_editar.setOnClickListener(v -> {
             // Actualizar el contacto en la base de datos
-            adapter.editContact(position,
+            adapter.editContact(id,
                     editText_name.getText().toString(),
                     editText_last_name.getText().toString(),
                     editText_phone.getText().toString());
