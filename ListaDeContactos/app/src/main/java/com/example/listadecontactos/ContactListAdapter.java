@@ -85,7 +85,7 @@ public class ContactListAdapter extends ArrayAdapter<Contact>{
             System.out.println("Query entrante: " + query);
             // Hacer la consulta de la base de datos, adicionalmente buscar por el apellido
             String sqliteQuery = "SELECT * FROM contacts WHERE name LIKE ? OR last_name LIKE ? OR phone LIKE ?";
-            String[] args = {"%" + query + "%", "%" + query + "%"};
+            String[] args = {"%" + query + "%", "%" + query + "%", "%" + query + "%"};
             System.out.println("Query a ejecutar: " + sqliteQuery);
             System.out.println("Args: " + Arrays.toString(args));
             Cursor cursor2 = db.rawQuery(sqliteQuery, args);
