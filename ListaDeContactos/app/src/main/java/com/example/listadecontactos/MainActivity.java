@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     Contact contact = (Contact) listView_contacts.getAdapter().getItem(position);
                     int contactId = contact.getId();
                     intent.putExtra("id",contactId);
-                    startActivityForResult(intent, 1);
+                    startActivityForResult(intent, 2);
                 }
         );
 
