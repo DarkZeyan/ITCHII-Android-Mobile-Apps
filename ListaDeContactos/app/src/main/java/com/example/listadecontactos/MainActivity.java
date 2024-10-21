@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     SearchView searchView;
     TextView empty_list_text;
+    SQLiteDatabase db;
+    ContactSqliteHelper contactSqliteHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         TextView searchText = (TextView) searchView.findViewById(searchTextId);
         searchText.setHintTextColor(getResources().getColor(R.color.white)); //
 
-        ContactSqliteHelper contactSqliteHelper = new ContactSqliteHelper(this);
-        SQLiteDatabase db = contactSqliteHelper.getWritableDatabase();
+        contactSqliteHelper = new ContactSqliteHelper(this);
+        db = contactSqliteHelper.getWritableDatabase();
         contactListAdapter = new ContactListAdapter(this, db);
         contactListAdapter.notifyDataSetChanged();
         listView_contacts.setAdapter(contactListAdapter);
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        contactListAdapter = new ContactListAdapter(this, db);
         // Validamos que el resultado sea correcto
         if (requestCode == 1 && resultCode == RESULT_OK) {
             // Actualizar la lista de contactos después de agregar uno nuevo
