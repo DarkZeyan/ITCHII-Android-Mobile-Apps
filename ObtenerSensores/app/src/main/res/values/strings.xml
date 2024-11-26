@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ObtenerSensores</string>
+    <string name="textView_contador">Total de sensores encontrados: </string>
 </resources>

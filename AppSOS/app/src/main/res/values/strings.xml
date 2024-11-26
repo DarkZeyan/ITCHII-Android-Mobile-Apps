@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SOS</string>
+    <string name="textView_contador">Veces que ha sido enviado el mensaje con exito: </string>
+    <string name="button_SOS">S.O.S</string>
+
+</resources>

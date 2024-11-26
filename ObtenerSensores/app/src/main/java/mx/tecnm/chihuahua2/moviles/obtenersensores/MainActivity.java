@@ -13,12 +13,15 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView textView_contador;
+    int contador = 0;
     // Objeto para la gestion de sensores
     private SensorManager sensorManager;
     // Lista para el guardado del listado
@@ -42,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         // Despues de la instanciacion del sensorManager se obtiene la lista de sensores disponibles
         List<Sensor> listaSensores = sensorManager.getSensorList(Sensor.TYPE_ALL);
+
+        contador = listaSensores.size();
+        textView_contador = findViewById(R.id.textView_contador);
+        textView_contador.setText(getString(R.string.textView_contador)+String.valueOf(contador));
+
 
 //        Se crea un adaptador, el cual es un mecanismo de Android que funciona como puente entre nuestros datos
         // y las vistas contenidas en el ListView (lista_sensores), puede ser tambien un GridView o un Spinner

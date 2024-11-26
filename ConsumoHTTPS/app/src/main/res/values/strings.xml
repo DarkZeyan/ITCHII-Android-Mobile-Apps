@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ConsumoHTTPS</string>
+
+    <string name="id_graminea">ID: </string>
+    <string name="nombre_comun">Nombre Comun: </string>
+    <string name="nombre_cientifico">Nombre Cientifico: </string>
+    <string name="descripcion">Descripcion: </string>
+
+</resources>
