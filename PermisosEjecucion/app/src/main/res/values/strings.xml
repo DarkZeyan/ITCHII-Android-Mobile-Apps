@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PermisosEjecucion</string>
+    <string name="button_revisarPermisos">Revisar permisos</string>
+    <string name="button_solicitarPermisos">Solicitar permisos</string>
+</resources>
